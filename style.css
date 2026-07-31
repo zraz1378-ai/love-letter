@@ -1,110 +1,299 @@
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-    min-height:100vh;
+
     overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
 
-/* Loading Screen */
-#loading-screen{
-    position:fixed;
-    inset:0;
-    background:#ffb6c1;
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(135deg,#ffd6eb,#ffc2dd,#ffe5f2);
+
+    background-size:400% 400%;
+
+    animation:bg 12s ease infinite;
+
+    height:100vh;
+
     display:flex;
-    flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
     color:white;
-    font-size:22px;
-    z-index:999;
-    animation:fadeOut 2s ease forwards;
-    animation-delay:2s;
+
 }
 
-#loading-screen h1{
-    font-size:60px;
-    animation:heartbeat 1s infinite;
+@keyframes bg{
+
+0%{
+background-position:0% 50%;
 }
 
-@keyframes heartbeat{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
+50%{
+background-position:100% 50%;
 }
 
-@keyframes fadeOut{
-    to{
-        opacity:0;
-        visibility:hidden;
-    }
+100%{
+background-position:0% 50%;
 }
 
-/* Password Box */
-.container{
-    width:90%;
-    max-width:400px;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.page{
+
+display:none;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+width:100%;
+
+height:100%;
+
+padding:25px;
+
+animation:fade .8s;
+
+}
+
+.active{
+
+display:flex;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+h1{
+
+font-family:'Parisienne',cursive;
+
+font-size:45px;
+
+margin-bottom:20px;
+
+text-shadow:0 0 15px rgba(255,255,255,.6);
+
 }
 
 h2{
-    color:#ff4f81;
-    margin-bottom:15px;
-}
 
-p{
-    color:#666;
-    margin-bottom:20px;
+margin-top:20px;
+
+font-size:24px;
+
 }
 
 input{
-    width:100%;
-    padding:14px;
-    border:2px solid #ffc0cb;
-    border-radius:12px;
-    outline:none;
-    text-align:center;
-    font-size:16px;
+
+width:270px;
+
+padding:15px;
+
+border:none;
+
+outline:none;
+
+border-radius:30px;
+
+text-align:center;
+
+font-size:16px;
+
+margin-bottom:15px;
+
+background:white;
+
+color:#ff5d9e;
+
 }
 
 button{
-    margin-top:15px;
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    background:#ff4f81;
-    color:white;
-    font-size:17px;
-    cursor:pointer;
-    transition:.3s;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:16px;
+
+background:#ff6fa9;
+
+color:white;
+
+transition:.3s;
+
+box-shadow:0 0 25px rgba(255,111,169,.45);
+
 }
 
 button:hover{
-    background:#ff2e6e;
+
+transform:scale(1.05);
+
+background:#ff4f95;
+
 }
 
-#error{
-    color:red;
-    margin-top:12px;
-    font-size:14px;
+.envelope{
+
+font-size:120px;
+
+cursor:pointer;
+
+animation:float 2s ease-in-out infinite;
+
+transition:.4s;
+
 }
 
-.hidden{
-    display:none;
-  }
+.envelope:hover{
+
+transform:scale(1.12);
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+.letter{
+
+width:90%;
+
+max-width:700px;
+
+height:75vh;
+
+overflow:auto;
+
+padding:30px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.25);
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 0 40px rgba(255,255,255,.25);
+
+text-align:left;
+
+}
+
+.letter p{
+
+line-height:2;
+
+font-size:17px;
+
+color:white;
+
+}
+
+#wrong{
+
+margin-top:15px;
+
+font-size:15px;
+
+color:#fff0f5;
+
+}
+
+#hearts{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.heart{
+
+position:absolute;
+
+bottom:-30px;
+
+color:white;
+
+animation:fly linear forwards;
+
+opacity:.8;
+
+}
+
+@keyframes fly{
+
+0%{
+
+transform:translateY(0) scale(1);
+
+opacity:.9;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.8);
+
+opacity:0;
+
+}
+
+}
