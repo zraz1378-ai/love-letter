@@ -3,52 +3,87 @@ const PASSWORD = "112425";
 const passwordPage = document.getElementById("passwordPage");
 const envelopePage = document.getElementById("envelopePage");
 const letterPage = document.getElementById("letterPage");
-const wrong = document.getElementById("wrong");
 
 function checkPassword(){
 
-    const input = document.getElementById("password").value;
+const pass=document.getElementById("password").value;
 
-    if(input === PASSWORD){
+if(pass===PASSWORD){
 
-        passwordPage.classList.remove("active");
-        envelopePage.classList.add("active");
+passwordPage.classList.remove("active");
 
-    }else{
+envelopePage.classList.add("active");
 
-        wrong.innerHTML = "Wrong password baby 🥺";
+}else{
 
-    }
+document.getElementById("wrong").innerHTML="Wrong password baby 🥺";
+
+}
 
 }
 
 function openLetter(){
 
-    envelopePage.classList.remove("active");
-    letterPage.classList.add("active");
+envelopePage.classList.remove("active");
+
+letterPage.classList.add("active");
+
+startTypewriter();
 
 }
 
 function createHeart(){
 
-    const heart=document.createElement("div");
+const heart=document.createElement("div");
 
-    heart.className="heart";
+heart.className="heart";
 
-    heart.innerHTML=["🤍","💗","💕","💖","💞"][Math.floor(Math.random()*5)];
+heart.innerHTML=["🤍","💗","💕","💖","💞"][Math.floor(Math.random()*5)];
 
-    heart.style.left=Math.random()*100+"vw";
+heart.style.left=Math.random()*100+"vw";
 
-    heart.style.fontSize=(18+Math.random()*30)+"px";
+heart.style.fontSize=(18+Math.random()*30)+"px";
 
-    heart.style.animationDuration=(5+Math.random()*5)+"s";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
 
-    document.getElementById("hearts").appendChild(heart);
+document.getElementById("hearts").appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },10000);
+setTimeout(()=>{
+
+heart.remove();
+
+},10000);
 
 }
 
-setInterval(createHeart,350);
+setInterval(createHeart,300);
+
+const message=`YOUR MESSAGE HERE`;
+
+let i=0;
+
+function startTypewriter(){
+
+const target=document.getElementById("typewriter");
+
+if(!target)return;
+
+target.innerHTML="";
+
+function type(){
+
+if(i<message.length){
+
+target.innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,18);
+
+}
+
+}
+
+type();
+
+}
