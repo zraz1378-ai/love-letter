@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For My Baby ❤️</title>
+<title>For My Baby ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Parisienne&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <h1>❤️</h1>
-        <p>Preparing something special...</p>
-    </div>
+<div id="hearts"></div>
 
-    <!-- Welcome Screen -->
-    <div id="welcome-screen" class="hidden">
+<!-- PASSWORD PAGE -->
 
-        <h1>For My Baby ❤️</h1>
+<div class="page active" id="passwordPage">
 
-        <p>
-            This isn't just a website.<br><br>
-            It's my heart.<br><br>
-            And it's waiting for you.
-        </p>
+<h1>Only my baby can open this. 🤍</h1>
 
-        <button id="beginBtn">
-            Begin ❤️
-        </button>
+<input
+type="password"
+id="password"
+placeholder="Enter password">
 
-    </div>
+<button onclick="checkPassword()">
+Unlock My Heart ✨
+</button>
 
-    <script src="script.js"></script>
+<p id="wrong"></p>
+
+</div>
+
+<!-- ENVELOPE PAGE -->
+
+<div class="page" id="envelopePage">
+
+<div class="envelope" onclick="openLetter()">
+
+💌
+
+</div>
+
+<h2>Open Your Letter, Baby 💗</h2>
+
+</div>
+
+<!-- LETTER PAGE -->
+
+<div class="page" id="letterPage">
+
+<div class="letter">
+
+<h1>November 24, 2025</h1>
+
+<p>
+
+Your love letter will appear here...
+
+</p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
