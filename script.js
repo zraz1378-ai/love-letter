@@ -72,23 +72,28 @@ let i = 0;
 
 function startTypewriter(){
 
-const target=document.getElementById("typewriter");
+const target = document.getElementById("typewriter");
 
-if(!target)return;
+if(!target) return;
 
-target.innerHTML="";
+target.innerHTML = "";
+i = 0;
 
 function type(){
 
-if(i<message.length){
+    if(i < message.length){
 
-target.innerHTML+=message.charAt(i);
+        if(message.charAt(i) === "\n"){
+            target.innerHTML += "<br>";
+        }else{
+            target.innerHTML += message.charAt(i);
+        }
 
-i++;
+        i++;
+        target.scrollIntoView({behavior:"smooth", block:"end"});
+        setTimeout(type,18);
 
-setTimeout(type,18);
-
-}
+    }
 
 }
 
