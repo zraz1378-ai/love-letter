@@ -93,16 +93,29 @@ function type(){
         target.scrollIntoView({behavior:"smooth", block:"end"});
         setTimeout(type,18);
 
+    }else{
+
+        document.getElementById("songSection").style.display = "block";
+
     }
 
 }
-
 type();
 
 }
 function playOurSong(){
-    window.open(
-        "https://www.youtube.com/results?search_query=Zack+Tabudlo+Give+Me+Your+Forever",
-        "_blank"
+
+    const answer = confirm(
+        "🤍 One last thing...\n\nClose your eyes, think about us, then press OK."
     );
-        }
+
+    if(answer){
+
+        window.open(
+            "https://youtu.be/5HZ9qeFjhYk?si=wIFP4XzI9C1SlxJ5",
+            "_blank"
+        );
+
+    }
+
+}
