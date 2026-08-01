@@ -74,9 +74,8 @@ heart.remove();
 
 setInterval(createHeart,300);
 
-const message=`YOUR MESSAGE HERE`;
-
-let i=0;
+let message = "";
+let i = 0;
 
 function startTypewriter(){
 
