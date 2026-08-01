@@ -22,6 +22,7 @@ document.getElementById("wrong").innerHTML="Wrong password baby 🥺";
 
 }
 
+
 function openLetter(){
 
 const voice = document.getElementById("voice");
@@ -30,20 +31,12 @@ envelopePage.classList.remove("active");
 
 letterPage.classList.add("active");
 
+// Simulan agad ang typewriter
+startTypewriter();
+
+// I-play ang voice
 if(voice){
-
-voice.play().catch(()=>{});
-
-voice.onended = () => {
-
-startTypewriter();
-
-};
-
-}else{
-
-startTypewriter();
-
+    voice.play().catch(()=>{});
 }
 
 }
