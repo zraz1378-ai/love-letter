@@ -100,3 +100,9 @@ function type(){
 type();
 
 }
+function playOurSong(){
+    window.open(
+        "https://www.youtube.com/results?search_query=Zack+Tabudlo+Give+Me+Your+Forever",
+        "_blank"
+    );
+        }
