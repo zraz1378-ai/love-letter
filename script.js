@@ -25,21 +25,27 @@ document.getElementById("wrong").innerHTML="Wrong password baby 🥺";
 
 function openLetter(){
 
-const voice = document.getElementById("voice");
+    const voice = document.getElementById("voice");
 
-envelopePage.classList.remove("active");
+    envelopePage.classList.remove("active");
+    letterPage.classList.add("active");
 
-letterPage.classList.add("active");
+    if(voice){
 
-// Simulan agad ang typewriter
-startTypewriter();
+        voice.play().catch(()=>{});
 
-// I-play ang voice
-if(voice){
-    voice.play().catch(()=>{});
+        voice.onended = () => {
+            startTypewriter();
+        };
+
+    }else{
+
+        startTypewriter();
+
+    }
+
 }
 
-}
 
 function createHeart(){
 
